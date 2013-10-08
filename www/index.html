@@ -35,9 +35,17 @@
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            app.initialize();
+            // Application Constructor
+            window.onload = function() {
+                alert("Imei Function");
+                window.plugins.imei.get(function(imei) {
+                    var imeiVal = document.getElementById('imei');
+                    imeiVal.innerHTML = imei;
+                }, function() {
+                    alert("Imei fail");
+                });        
+            }
         </script>
     </body>
 </html>
